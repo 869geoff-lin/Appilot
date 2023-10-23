@@ -71,10 +71,27 @@ def print_ai_response(message):
     else:
         console.print(Markdown(message))
 
+def get_ai_response(message):
+    result = text.get("response_prefix")
+    print(result, end="")
+    if message.startswith(raw_format_prefix):
+        result += message[len(raw_format_prefix) :]
+        print(message[len(raw_format_prefix) :])
+        return result
+    else:
+        result += message
+        console.print(Markdown(message))
+        return result
+
 
 def print_rejected_message():
     print(text.get("response_prefix"), end="")
     print(text.get("rejected_message"))
+
+def get_rejected_message():
+    result = text.get("response_prefix")
+    result += text.get("rejected_message")
+    return result
 
 
 def format_relative_time(iso_time):

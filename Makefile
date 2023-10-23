@@ -53,4 +53,4 @@ lint:
 run:
 	@echo -e "$(COLOR_CYAN)Running Appilot...$(COLOR_RESET)" && \
 	source .venv/bin/activate && \
-	python3 app.py
+	uvicorn app:app
