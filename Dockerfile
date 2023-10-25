@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . .
 COPY ./bin /usr/local/bin/
+RUN chmod +x /usr/local/bin/*
 
 RUN pip3 install -r requirements.txt
 

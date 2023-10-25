@@ -91,8 +91,9 @@ def setup_agent() -> Any:
 
 # @app.websocket("/ask/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
-    appilot_agent = setup_agent()
     await websocket.accept()
+    await websocket.send_text("Starting connecting...")
+    appilot_agent = setup_agent()
     await websocket.send_text(text.get("welcome"))
     while True:
         data = await websocket.receive_text()

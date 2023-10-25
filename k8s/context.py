@@ -22,6 +22,7 @@ def init_api_resources_cache():
         "GET",
         response_type="object",
         _return_http_data_only=True,
+        auth_settings=["BearerToken"],
     )
     api_resources = [
         {**resource, "groupVersion": "v1"}
@@ -34,6 +35,7 @@ def init_api_resources_cache():
         "GET",
         response_type="object",
         _return_http_data_only=True,
+        auth_settings=["BearerToken"],
     )
 
     for api_group in api_group_list["groups"]:
@@ -42,6 +44,7 @@ def init_api_resources_cache():
             "GET",
             response_type="object",
             _return_http_data_only=True,
+            auth_settings=["BearerToken"],
         )
         api_resources.extend(
             [
